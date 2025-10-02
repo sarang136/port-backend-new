@@ -1,8 +1,13 @@
 const express = require('express');
 const connectDb = require('./bd');
 const View = require('./view')
-
+const dotenv = require('dotenv');
+dotenv.config();
+const cors = require('cors');
 const app = express();
+
+app.use(cors());
+app.use(express.json());
 
 app.post('/view', async (req, res) => {
   try {

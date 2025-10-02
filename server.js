@@ -23,7 +23,16 @@ app.post('/view', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
+app.get('/get-views', async (req, res) => {
+  try {
+    const viewData = await View.findOne({});
+    res.status(200).json({message : "success",  views: viewData });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+const PORT = process.env.PORT || 4000;
 
 connectDb()
     .then(() => {

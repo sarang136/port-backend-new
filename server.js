@@ -23,10 +23,11 @@ app.post('/view', async (req, res) => {
   }
 });
 
+const PORT = process.env.PORT || 5000;
 
 connectDb()
     .then(() => {
-        app.listen(5000, () => console.log("Server started on 5000"));
+        app.listen(PORT, () => console.log("Server started on 5000"));
         console.log("Database connected");
     })
     .catch(() => {
